@@ -14,16 +14,15 @@ fi
 mkdir -p /data/web_static/{shared,releases/test/}
 echo "Welcome, Earthling!" > /data/web_static/releases/test/index.html
 
-ln -sf /data/web_static/releases/test/ /data/web_static/current
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -R ubuntu:ubuntu /data/
 
-if ! grep -q "location /hbtn_static/ {" /etc/nginx/sites-available/default
+if ! grep -q "location /hbnb_static/ {" /etc/nginx/sites-available/default
 then
         sed -i "/server_name _;/a\\
-        location /hbtn_static/ {\\
+        location /hbnb_static/ {\\
                 alias /data/web_static/current/;\\
-                autoindex off;\\
         }" /etc/nginx/sites-available/default
 fi
 
