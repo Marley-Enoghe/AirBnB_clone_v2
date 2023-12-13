@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-a Fabric script (based on the file 2-do_deploy_web_static.py) that
+This is a Fabric script (based on the file 2-do_deploy_web_static.py) that
 creates and distributes an archive to your web servers
 """
 
 from datetime import datetime
 import os
 from fabric.api import local, put, run, env
-env.hosts = ['54.146.90.145', '18.204.14.136']
+env.hosts = ['161.74.224.1', '']
 
 
 def do_pack():
