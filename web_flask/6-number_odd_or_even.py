@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""To get Flask"""
+"""Used to start the flask"""
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -41,6 +41,19 @@ def number_template(n=None):
     """Used to display a HTML page only if n is an integer"""
     if isinstance(n, int):
         return render_template("5-number.html", n=n)
+
+
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def number_odd_or_even(n=None):
+    """Used to display a HTML page only if n is an integer:
+    H1 tag: “Number: n is even|odd” inside the tag BODY
+    """
+    if isinstance(n, int):
+        if n % 2:
+            eo = "odd"
+        else:
+            eo = "even"
+        return render_template("6-number_odd_or_even.html", n=n, eo=eo)
 
 
 if __name__ == "__main__":
